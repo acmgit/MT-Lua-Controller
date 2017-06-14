@@ -3,54 +3,54 @@ mem.digit = {}
 
 mem.digit[0] = {a = true, b = false, c = true}
 mem.digit[1] = {a = false, b = true, c = false}
-mem.digit[2] = {a = false, b = false, c = true} 
-mem.digit[3] = {a = true, b = false, c = false}
-mem.digit[4] = {a = true, b = false, c = false}
-mem.digit[5] = {a = true, b = false, c = false}
-mem.digit[6] = {a = true, b = false, c = true}
+mem.digit[2] = {a = true, b = true, c = true} 
+mem.digit[3] = {a = true, b = true, c = false}
+mem.digit[4] = {a = true, b = true, c = true}
+mem.digit[5] = {a = true, b = true, c = true}
+mem.digit[6] = {a = true, b = true, c = true}
 mem.digit[7] = {a = true, b = false, c = false}
-mem.digit[8] = {a = true, b = false, c = true}
-mem.digit[9] = {a = true, b = false, c = false}
+mem.digit[8] = {a = true, b = true, c = true}
+mem.digit[9] = {a = true, b = true, c = true}
 
 mem.digit[" "] = {a = false, b = false, c = false}
 
-mem.digit["A"] = {a = true, b = false, c = true}
-mem.digit["B"] = {a = true, b = false, c = true}
-mem.digit["C"] = {a = true, b = false, c = true}
+mem.digit["A"] = {a = true, b = true, c = true}
+mem.digit["B"] = {a = false, b = true, c = true}
+mem.digit["C"] = {a = false, b = false, c = true}
 mem.digit["D"] = {a = true, b = false, c = true}
-mem.digit["E"] = {a = false, b = false, c = true}
-mem.digit["F"] = {a = false, b = false, c = true}
-mem.digit["G"] = {a = true, b = false, c = true}
-mem.digit["H"] = {a = true, b = false, c = true}
+mem.digit["E"] = {a = false, b = true, c = true}
+mem.digit["F"] = {a = false, b = true, c = true}
+mem.digit["G"] = {a = false, b = false, c = true}
+mem.digit["H"] = {a = true, b = true, c = true}
 mem.digit["I"] = {a = false, b = true, c = false}
-mem.digit["J"] = {a = true, b = false, c = true}
-mem.digit["K"] = {a = true, b = false, c = true}
+mem.digit["J"] = {a = true, b = false, c = false}
+mem.digit["K"] = {a = false, b = true, c = true}
 mem.digit["L"] = {a = false, b = false, c = true}
-mem.digit["M"] = {a = true, b = false, c = true}
+mem.digit["M"] = {a = true, b = true, c = true}
 mem.digit["N"] = {a = true, b = true, c = true}
 mem.digit["O"] = {a = true, b = false, c = true}
-mem.digit["P"] = {a = false, b = false, c = true}
-mem.digit["Q"] = {a = false, b =true, c = false}
-mem.digit["R"] = {a = true, b = false, c = true}
-mem.digit["S"] = {a = true, b = false, c = false}
+mem.digit["P"] = {a = false, b = true, c = true}
+mem.digit["Q"] = {a = true, b =false, c = true}
+mem.digit["R"] = {a = false, b = true, c = true}
+mem.digit["S"] = {a = false, b = true, c = false}
 mem.digit["T"] = {a = false, b = true, c = false}
 mem.digit["U"] = {a = true, b = false, c = true}
 mem.digit["V"] = {a = true, b = false, c = true}
-mem.digit["W"] = {a = true, b = true, c = true}
-mem.digit["X"] = {a = true, b = false, c = true}
+mem.digit["W"] = {a = true, b = false, c = true}
+mem.digit["X"] = {a = false, b = true, c = false}
 mem.digit["Y"] = {a = false, b = true, c = false}
-mem.digit["Z"] = {a = false, b = false, c = true}
+mem.digit["Z"] = {a = false, b = true, c = false}
 
-mem.digit["+"] = {a = false, b = true, c = false}
-mem.digit["-"] = {a = false, b = false, c = false}
+mem.digit["+"] = {a = true, b = true, c = true}
+mem.digit["-"] = {a = true, b = true, c = true}
 mem.digit["'"] = {a = false, b = false, c = false}
 mem.digit["("] = {a = false, b = false, c = true}
 mem.digit[")"] = {a = true, b = false, c = false}
 mem.digit["."] = {a = false, b = false, c = false}
-mem.digit[","] = {a = false, b = true, c = false}
-mem.digit[":"] = {a = false, b = true, c = false}
-mem.digit["!"] = {a = false, b = false, c = false}
-mem.digit["?"] = {a = false, b = false, c = false}
+mem.digit[","] = {a = false, b = false, c = false}
+mem.digit[":"] = {a = false, b = false, c = false}
+mem.digit["!"] = {a = false, b = true, c = false}
+mem.digit["?"] = {a = true, b = true, c = false}
 mem.digit["/"] = {a = false, b = true, c = false}
 mem.digit["\\"] = {a = false, b = true, c = false}
 
@@ -62,7 +62,7 @@ mem.tz[1] = {hou = 1, min = 00, name = "CET"  } -- MEZ
 mem.tz[2] = {hou =  3, min = 30, name = "IRT" } -- IRT
 mem.tz[3] = {hou  = 5, min = 30, name = "IST" } -- IST
 mem.tz[4] = {hou = 7, min = 0, name = "ICT" }
-mem.range = math.floor(60 / zones) -- every Second change the TZ
+mem.range = math.floor(60 / zones) -- every x Second change the TZ
 
 interrupt(2, "Clock")
 
@@ -99,7 +99,7 @@ if(event.type == "interrupt" and event.iid == "Clock") then
   end
 
   -- Get the Minutes under 10 from the Time
-   currtime = time.min  % 10
+   currtime = time.min % 10
 
   port.a = mem.digit[currtime].c
   port.d = mem.digit[currtime].b
